@@ -1,0 +1,139 @@
+* {margin: 0; box-sizing: boder-box;}
+
+:root {
+  --my-start-top: 0;
+  --my-end-top: 0;
+}
+
+
+body {
+  font: 14px/1.4 sans-serif;
+  background: hsl(220, 16%, 16%);
+  color: #fff;
+  padding: 16px;
+}
+
+#editor {
+  display: flex;
+}
+
+h2 {
+  padding: 16px 0;
+  font-weight: 200;
+  font-size: 14px;
+}
+
+.highLite {
+  position: relative;
+  background: hsl(220, 16%, 14%);
+}
+
+.highLite_colors,
+.highLite_editable {
+  padding: 16px;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  white-space: pre-wrap;
+  font-family: monospace;
+  font-size: 13px;
+}
+
+/* THE OVERLAYING CONTENTEDITABLE WITH TRANSPARENT TEXT */
+.highLite_editable {
+  position: relative;
+  color: transparent; /* Make text invisible */
+  caret-color: hsl( 50, 75%, 70%); /* But keep caret visible */
+}
+.highLite_editable:focus {
+  outline: 1px solid hsl(220, 16%, 19%);
+}
+.highLite_editable::selection {
+  background: hsla( 0, 0%, 90%, 0.2);
+}
+
+/* THE UNDERLAYING ONE WITH HIGHLIGHT COLORS */
+.highLite_colors {
+  position: absolute;
+  user-select: none;
+}
+
+#code{
+  width: 100%;
+  resize: none;
+  border: none;
+  color: white;
+}
+
+.highLite_colors i {
+  font-style: normal;
+}
+
+/* JS */
+i.java_quot { color: hsl( 50, 75%, 70%); }
+i.java_decl { color: hsl(200, 75%, 70%); }
+i.java_func { color: hsl(300, 75%, 70%); }
+i.java_pare { color: hsl(210, 75%, 70%); }
+i.java_squa { color: hsl(230, 75%, 70%); }
+i.java_curl { color: hsl(250, 75%, 70%); }
+i.java_numb { color: hsl(100, 75%, 70%); }
+i.java_logi { color: hsl(200, 75%, 70%); }
+i.java_equa { color: hsl(200, 75%, 70%); }
+i.java_comm { color: hsl(200, 10%, 45%); font-style: italic; }
+i.java_comm > * { color: inherit; }
+
+/* HTML */
+i.html_angl { color: hsl(200, 10%, 45%); }
+i.html_tags { color: hsl(  0, 75%, 70%); }
+i.html_attr { color: hsl(200, 74%, 70%); }
+
+
+.plus-one {
+  color: green;
+  font-weight: bold;
+  position: absolute;
+
+  -webkit-animation-name: translation; /* Safari 4.0 - 8.0 */
+  -webkit-animation-duration: 1s; /* Safari 4.0 - 8.0 */
+  -webkit-animation-timing-function: ease-in;
+  -webkit-animation-iteration-count: 1;
+  -webkit-animation-fill-mode: forwards;
+
+  animation-name: translation;
+  animation-duration: 0.5s;
+  animation-timing-function: ease-in;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
+}
+.minus-one {
+  color: red;
+  font-weight: bold;
+  position: absolute;
+
+  -webkit-animation-name: translation; /* Safari 4.0 - 8.0 */
+  -webkit-animation-duration: 1s; /* Safari 4.0 - 8.0 */
+  -webkit-animation-timing-function: ease-in;
+  -webkit-animation-iteration-count: 1;
+  -webkit-animation-fill-mode: forwards;
+
+  animation-name: translation;
+  animation-duration: 0.5s;
+  animation-timing-function: ease-in;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
+}
+@keyframes translation {
+  from {
+      top: var(--my-start-top);
+      opacity: 100%;
+  }
+  to {
+      opacity: 0%;
+      top: var(--my-start-end);
+  }
+}
+
+.hidden {
+  display: none;
+}

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agra</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+
+<body>
+
+    <div class="codeStandardinput">
+        <h2>Input</h2>
+        <textarea class="highLite" name="code" id="code" cols="30" rows="10"></textarea>
+
+        <form action="/" method="POST">
+            <input type="hidden" id="givenCodeValue" name="givenCode">
+            <button onclick="changeHiddenInput()" type="submit" style="margin-top: 20px;" id="Submit">Submit</button>
+        </form>
+    </div>
+
+    <h1 id="score">Score = 0</h1>
+
+    <h2>JAVA</h2>
+
+    <div class="highLite">
+        <div class="highLite_colors"></div>
+        <div id="codeInput" class="highLite_editable" data-lang="java"></div>
+        <span contenteditable="false" id="number" class="hidden"></span>
+    </div>
+
+    <script src="js/codeScore.js"></script>
+    <script src="js/index.js"></script>
+
+</body>
+
+</html>
