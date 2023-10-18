@@ -14,9 +14,12 @@
         <h2>Input</h2>
         <textarea class="highLite" name="code" id="code" cols="30" rows="10"></textarea>
 
-        <form action="/" method="POST">
+        <form id="form" action="/" method="POST">
             <input type="hidden" id="givenCodeValue" name="givenCode">
-            <button onclick="changeHiddenInput()" type="submit" style="margin-top: 20px;" id="Submit">Submit</button>
+            <button onclick="changeHiddenInput(); " type="submit" style="margin-top: 20px;" id="Submit">Submit</button>
+        </form>
+        <form action="/output" method="GET">
+            <input type="button" onclick="fetchOutput();" value="See Output">
         </form>
     </div>
 
@@ -32,6 +35,16 @@
 
     <script src="js/codeScore.js"></script>
     <script src="js/index.js"></script>
+    <script>
+
+        function fetchOutput() {
+            fetch('http://localhost:3000/output')
+                .then(response => response.json())
+                .then(data => {
+                    console.log(data);
+                });
+        }
+    </script>
 
 </body>
 

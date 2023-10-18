@@ -1,3 +1,4 @@
+const e = require("express");
 
 let lang = {
     java: {
@@ -158,6 +159,7 @@ editors.forEach(el => {
     highLite(el); // Init!
 });
 
+
 const submitBtn = document.querySelector("#Submit");
 submitBtn.addEventListener("click", () => {
     givenCode = document.querySelector("#code").value;
@@ -165,6 +167,7 @@ submitBtn.addEventListener("click", () => {
     updateFuncRegex();
     alert("Code submitted")
 });
+
 
 function uniq(a) {
     var seen = {};
@@ -175,5 +178,4 @@ function uniq(a) {
 
 function changeHiddenInput() {
     document.getElementById("givenCodeValue").value = document.querySelector("#code").value;
-    console.log(document.getElementById("givenCodeValue").innerHTML);
 }

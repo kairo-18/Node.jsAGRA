@@ -14,9 +14,14 @@ app.use('/js', express.static(__dirname + 'public/js'));
 app.use('/img', express.static(__dirname + 'public/img'));
 app.use(bodyParser.urlencoded({ extended: true }));
 
-app.get('', function (req, res) {
+app.get('/', function (req, res) {
     res.sendFile(__dirname + '/views/index.html');
 });
+
+app.get('/output', function (req, res) {
+    res.json({ givenCode: givenCode, output: output });
+});
+
 
 app.post('/', function (req, res) {
     givenCode = req.body.givenCode;
@@ -42,13 +47,12 @@ app.post('/', function (req, res) {
             console.log('statusCode:', response && response.statusCode);
             console.log('body:', body);
             output = body.output;
-            process.stdout.write("Output: " + output);
+            res.redirect('back');
+
         })
 
 
 });
-
-
 
 
 app.use('/', router);
